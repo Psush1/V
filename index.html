@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A small gift</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- INTRO PAGE -->
+  <section class="screen active" id="intro">
+    <h1>A small gift</h1>
+
+    <p>
+      Hello Lilyyyy,<br><br>
+      I made this small surprise for you. It’s something I put together with a lot of thought,
+      and I really hope it brings a smile to your face.<br><br>
+      Take your time with it. Enjoy the little games and the random things along the way.
+    </p>
+
+    <button onclick="goToScreen('video')">Start</button>
+  </section>
+
+  <!-- VIDEO PAGE -->
+  <section class="screen" id="video">
+    <p>For you</p>
+
+   <div class="video-box">
+  <video width="100%" height="100%" controls>
+    <source src="E:\Books\V\images\IMG_0659.MP4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+    <button onclick="goToScreen('menu')">Next</button>
+  </section>
+
+  <!-- GAME MENU -->
+  <section class="screen" id="menu">
+    <h2>Game Time</h2>
+
+    <div class="menu-buttons">
+      <button onclick="goToScreen('game1'); startHeartGame();">
+  Catch the hearts
+</button>
+      <button onclick="goToScreen('game2'); startSurviveGame();">
+  Survive
+</button>
+<button onclick="goToScreen('game3'); startTapGame();">Tap Fast</button>
+<button onclick="goToScreen('memory'); initScratchCards();">
+  Memory
+</button>
+    </div>
+  </section>
+
+  <!-- GAME 1 -->
+  <section class="screen" id="game1">
+  <h2>Catch the Hearts</h2>
+  <p>Move the hand and catch the falling hearts.</p>
+
+  <div class="hud">
+  <span id="heart-timer">⏱ 60</span>
+  <span id="heart-score">❤️ 0</span>
+  <span id="heart-lives">💔 5</span>
+</div>
+
+  <div class="play-area" id="heart-area">
+    <div id="catcher">✋</div>
+  </div>
+
+  <button onclick="endHeartGame()">Back</button>
+
+  <div class="popup" id="heart-popup">
+    <div class="popup-content">
+      <h3>Time’s up!</h3>
+      <p id="heart-final-score"></p>
+      <button onclick="closeHeartPopup()">Game Menu</button>
+    </div>
+  </div>
+</section>
+
+  <!-- GAME 2 -->
+  <section class="screen" id="game2">
+  <h2>Survive</h2>
+  <p>Tip: Lose to win 😛</p>
+
+  <div class="hud">
+    <span id="survive-time">⏱ 0</span>
+  </div>
+
+  <div class="play-area" id="survive-area">
+    <div id="player">👩</div>
+  </div>
+
+  <button onclick="endSurviveGame()">Back</button>
+
+  <div class="popup" id="survive-popup">
+    <div class="popup-content">
+      <h3>Caught you 😛</h3>
+      <p>Told you… lose to win 😌</p>
+      <button onclick="closeSurvivePopup()">Game Menu</button>
+    </div>
+  </div>
+</section>
+
+  <!-- GAME 3 -->
+  <section class="screen" id="game3">
+  <h2>Tap Fast</h2>
+  <p>Tap the Diet Coke cans before they disappear.</p>
+
+  <div class="hud">
+    <span id="tap-timer">⏱ 30</span>
+    <span id="tap-score">🥤 0</span>
+  </div>
+
+  <div class="play-area" id="tap-area"></div>
+<div class="popup" id="tap-popup">
+  <div class="popup-content">
+    <h3>Time’s up!</h3>
+    <p id="final-score-text"></p>
+    <button onclick="closeTapPopup()">Game Menu</button>
+  </div>
+</div>
+
+
+  <button onclick="endTapGame()">Back</button>
+</section>
+
+<!-- MEMORY SECTION -->
+<section class="screen" id="memory">
+  <h2>Through my eyes</h2>
+  <p>Scratch gently.</p>
+
+  <div class="memory-container">
+
+    <div class="scratch-card">
+      <img src="E:\Books\V\images\IMG_0060.jpg" class="memory-image" />
+      <canvas class="scratch-canvas"></canvas>
+      <div class="memory-caption">Cutest photo — from my eyes</div>
+    </div>
+
+    <div class="scratch-card">
+      <img src="E:\Books\V\images\IMG_0049.jpg" class="memory-image" />
+      <canvas class="scratch-canvas"></canvas>
+      <div class="memory-caption">Hottest photo — from my eyes</div>
+    </div>
+
+    <div class="scratch-card">
+      <img src="E:\Books\V\images\IMG_0045.JPG" class="memory-image" />
+      <canvas class="scratch-canvas"></canvas>
+      <div class="memory-caption">My favourite photo of us — from my eyes</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="goToScreen('reel')">Next</button>
+    <button onclick="goToScreen('menu')">Back to Games</button>
+  </div>
+</section>
+
+<!-- REEL SECTION -->
+<section class="screen" id="reel">
+  <h2>One more thing</h2>
+
+  <p>
+    There’s one more small thing for you.
+    Scan this when you're ready.
+  </p>
+
+  <div class="qr-container">
+    <img src="E:\Books\V\images\reel.jpg" alt="QR Code" class="qr-image" />
+  </div>
+
+<p style="font-size: 14px; opacity: 0.7;">
+  (Best viewed on a laptop so you can scan this 😉)
+</p>
+
+  <div style="margin-top: 30px;">
+    <button onclick="goToScreen('final')">Next</button>
+  </div>
+</section>
+
+  <!-- FINAL MESSAGE -->
+  <section class="screen" id="final">
+    <h2>One last thing</h2>
+
+    <p>
+      Dear Lily,<br><br>
+      I just wanted to do something small for you.<br>
+      There’s no meaning hidden here, no expectations.<br>
+      I just wanted you to know that you matter to me,
+      and you always have in your own way.<br><br>
+      Happy Valentine’s Day, Lily.
+    </p>
+
+    <h3>Will you be my Valentine?</h3>
+
+    <div class="menu-buttons">
+  <button onclick="valentineResponse('yes')">Yes</button>
+  <button onclick="valentineResponse('no')">No</button>
+  <button onclick="valentineResponse('maybe')">Maybe</button>
+</div>
+
+<div class="popup" id="valentine-popup">
+  <div class="popup-content">
+    <h3 id="valentine-title"></h3>
+    <p id="valentine-message"></p>
+    <button onclick="closeValentinePopup()">Close</button>
+  </div>
+</div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
